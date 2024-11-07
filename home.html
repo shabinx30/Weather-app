@@ -13,7 +13,7 @@
 
 <body>
     <div class="container">
-        <div class="main">
+        <div id="main" class="main">
             <h1 class="heading">Weather</h1>
             <div class="search">
                 <input type="text" id="cityInput" placeholder="Enter a city name" oninput="getCitySuggestions()" autocomplete="off">
@@ -21,7 +21,7 @@
                 <button onclick="fetchData()">search</button>
             </div>
             <div class="noWeather" id="noWeather">
-                <p>Search a city to find the waether details.</p>
+                <p>Search a city to find the weather details.</p>
             </div>
             <div id="weatherDis" class="weather">
                 <!-- <div class="whether-main"> -->
@@ -37,14 +37,14 @@
                     <img src="assets/humidity.png" class="sub">
                     <div>
                         <p id="humidity" class="humidity">55%</p>
-                        <p>Humidity</p>
+                        <p class="text">Humidity</p>
                     </div>
                 </div>
                 <div class="col">
                     <img src="assets/wind.png" class="sub">
                     <div>
                         <p id="wind" class="wind">50 km/h</p>
-                        <p>Wind Speed</p>
+                        <p class="text">Wind Speed</p>
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@
     async function fetchData() {
         try {
 
-            const name = document.getElementById('cityInput').value
+            const name = document.getElementById('cityInput').value.trim()
             if(name == ''){
                 return null
             }
@@ -71,10 +71,15 @@
 
             const result = await response.json()
 
+
+            //animation things 
+
             document.getElementById('noWeather').style.display = 'none'
+            document.getElementById('weatherDis').style.animation = 'errorS .75s ease'
             document.getElementById('weatherDis').style.display = 'flex'
-            document.getElementById('weatherDis').style.animation = 'errorS .5s ease forwards;'
+            document.getElementById('detailsDis').style.animation = 'errorS .75s ease'
             document.getElementById('detailsDis').style.display = 'flex'
+            // document.getElementById('main').style.animation = 'expand .75s ease'
 
             console.log(result);
             document.getElementById('temp').textContent = Math.round(result.main.temp - 273) + '°C'

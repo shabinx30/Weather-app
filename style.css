@@ -1,17 +1,16 @@
-
-body{
+body {
     font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  background-color: #dbcdff;
+    font-optical-sizing: auto;
+    font-style: normal;
+    background-color: #dbcdff;
 }
 
-.container{
+.container {
     padding-top: 5%;
 }
 
-@media (max-width: 520px){
-    .main{
+@media (max-width: 520px) {
+    .main {
         width: 40%;
         min-height: 200px;
         background-color: #a989ff;
@@ -20,11 +19,36 @@ body{
         border-radius: 30px;
         min-width: 90%;
     }
+
+    .sub {
+        width: 25px;
+        height: 25px;
+    }
+
+    .humidity,
+    .wind {
+        font-size: 14px;
+        /* Adjust font size as needed */
+        font-weight: bold;
+    }
+
+    .col .text {
+        font-size: 12px;
+    }
+
+    .search {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .5em;
+        padding: 0 7em;
+        position: relative;
+    }
 }
 
 
-@media (min-width: 520px){
-    .main{
+@media (min-width: 520px) {
+    .main {
         width: 60%;
         min-height: 200px;
         background-color: #a989ff;
@@ -35,90 +59,125 @@ body{
         max-width: 50%;
     }
 
-    /* .whether-icon{
-        width: 10%;
-    } */
+    .sub {
+        width: 40px;
+        height: 40px;
+    }
+
+    .humidity,
+    .wind {
+        font-size: 16px;
+        /* Adjust font size as needed */
+        font-weight: bold;
+    }
+
+    .search {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0px;
+        padding: 0 7em;
+        position: relative;
+    }
 }
 
 
-.heading{
+.heading {
     text-align: center;
     font-weight: 700;
     padding-top: 5%;
     color: black;
 }
 
-.search{
-    max-width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    /* padding: 5%; */
-    position: relative;
-    width: 300px;
-}
 
+
+
+/* Input styling */
 .search input {
     border-radius: 15px;
     height: 30px;
     width: 60%;
-    /* border-color: 1px solid #a989ff; */
     border: 1px solid #4400ff;
     font-weight: 500;
-    padding-left: .5em;
+    padding-left: 0.5em;
+    transition: width 0.4s ease, background-color 0.4s ease, border 0.4s ease;
+    margin: 0 auto;
+    min-width: 8em;
 }
 
-.search input:focus{
+/* Focused state for input */
+.search input:focus {
     outline: none;
     background-color: #e9e2ff;
     border: 1px solid #4400ff;
+    width: 65%;
+    /* Expands width */
 }
+
+.search input:hover {
+    outline: none;
+    background-color: #e9e2ff;
+    border: 1px solid #4400ff;
+    width: 65%;
+    /* Expands width */
+}
+
+/* Button styling */
+.search button {
+    /* margin-left: 0%; */
+    /* position: absolute; */
+    padding: 8px 16px;
+    border-radius: 10px;
+    background-color: #000000;
+    color: white;
+    border-radius: 15px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.search button:hover {
+    background-color: #5d5d5d;
+    color: white;
+}
+
 
 #suggestionsList {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 5px);
+    /* Slightly below input for breathing space */
     left: 0;
     right: 0;
+    width: 60%;
     background-color: #313131;
     color: white;
-    /* border: 1px solid #ccc; */
     border-top: none;
     border-radius: 15px;
     z-index: 1000;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 1);
     margin: 0;
     padding: 0;
+    overflow: hidden;
+    /* Ensures smooth rounded corners */
 }
 
+/* Individual suggestion items */
 #suggestionsList li {
     padding: 10px;
     cursor: pointer;
     list-style: none;
 }
 
-#suggestionsList li.selected {
-    background-color: #5d5d5d; /* Highlight for selected item */
-    border-radius: 15px;
-    color: white;
-}
-
+#suggestionsList li.selected,
 #suggestionsList li:hover {
-    background-color: #5d5d5d; /* Highlight for selected item */
+    background-color: #5d5d5d;
+    /* Highlight for selected item */
     border-radius: 15px;
     color: white;
 }
 
-.search button{
-    border-radius: 15px;
-    height: 30px;
-    width: 30%;
-    border: none;
-    color: white;
-    background-color: black;
-    font-weight: 500;
-    cursor: pointer;
-}
-
-.noWeather{
+.noWeather {
     padding-top: 2em;
     padding-bottom: 2em;
     display: flex;
@@ -127,7 +186,7 @@ body{
     align-items: center;
 }
 
-.weather{
+.weather {
     display: none;
     flex-direction: row;
     justify-content: center;
@@ -137,26 +196,36 @@ body{
 
 @keyframes errorS {
     0% {
-      margin-top: 0;
+        opacity: 0;
+        /* margin-top: 0; */
+        transform: translateY(-25%);
     }
 
     100% {
-      margin-top: 100px;
+        opacity: 1;
+        /* margin-top: 10px; */
+        transform: translateY(0);
     }
-  }
+}
 
-/* .whether-main{ */
-    /* display: block; */
-    /* padding-left: 10%; */
-/* } */
+@keyframes expand {
+    0% {
+        max-height: 200px;
+    }
 
-.weather-main div{
+    100% {
+        max-height: 200px;
+    }
+}
+
+
+.weather-main div {
     display: flex;
     /* padding-right: ; */
     gap: .5em;
 }
 
-.weather-icon{
+.weather-icon {
     width: 40%;
 }
 
@@ -164,7 +233,8 @@ body{
     display: none;
     justify-content: space-between;
     align-items: center;
-    width: 80%; /* Optional: adjust as needed */
+    width: 80%;
+    /* Optional: adjust as needed */
     /* padding: 10px; */
     padding-left: 10%;
     padding-right: 10%;
@@ -174,16 +244,6 @@ body{
 .col {
     display: flex;
     align-items: center;
-    gap: 10px; /* Space between the image and text */
+    gap: 10px;
+    /* Space between the image and text */
 }
-
-.sub {
-    width: 40px; /* Adjust size of the images as needed */
-    height: 40px;
-}
-
-.humidity, .wind {
-    font-size: 16px; /* Adjust font size as needed */
-    font-weight: bold;
-}
-
