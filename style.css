@@ -149,7 +149,7 @@ body {
     /* Slightly below input for breathing space */
     left: 0;
     right: 0;
-    width: 60%;
+    /* width: 60%; */
     background-color: #313131;
     color: white;
     border-top: none;
