@@ -43,7 +43,7 @@ async function getCitySuggestions() {
     const apiKey = '2e3485daa0504cb75b5b050b4ed98533';
 
     if (query.length < 2) {
-        document.getElementById("suggestionsList").innerHTML = ''; // Clear suggestions for short inputs
+        document.getElementById("suggestionsList").innerHTML = '';
         return;
     }
 
@@ -59,7 +59,7 @@ async function getCitySuggestions() {
 
 function displaySuggestions(data) {
     const suggestionsList = document.getElementById("suggestionsList");
-    suggestionsList.innerHTML = ''; // Clear previous suggestions
+    suggestionsList.innerHTML = '';
 
     data.forEach((city, index) => {
         const listItem = document.createElement("li");
@@ -67,8 +67,8 @@ function displaySuggestions(data) {
 
         listItem.onclick = function () {
             document.getElementById("cityInput").value = listItem.textContent;
-            suggestionsList.innerHTML = ''; // Clear suggestions after selection
-            performSearch(listItem.textContent); // Trigger search on selection
+            suggestionsList.innerHTML = '';
+            performSearch(listItem.textContent);
         };
 
         suggestionsList.appendChild(listItem);
@@ -95,7 +95,7 @@ document.getElementById("cityInput").addEventListener("keydown", function (event
         // Select the highlighted item if there is one
         if (currentIndex >= 0 && items[currentIndex]) {
             document.getElementById("cityInput").value = items[currentIndex].textContent;
-            suggestionsList.innerHTML = ''; // Clear suggestions after selection
+            suggestionsList.innerHTML = '';
             performSearch(items[currentIndex].textContent);
         } else {
             // Perform search with the input field's text if no item is selected
