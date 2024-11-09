@@ -28,7 +28,6 @@ body {
     .humidity,
     .wind {
         font-size: 14px;
-        /* Adjust font size as needed */
         font-weight: bold;
     }
 
@@ -67,7 +66,6 @@ body {
     .humidity,
     .wind {
         font-size: 16px;
-        /* Adjust font size as needed */
         font-weight: bold;
     }
 
@@ -91,8 +89,6 @@ body {
 
 
 
-
-/* Input styling */
 .search input {
     border-radius: 15px;
     height: 30px;
@@ -105,13 +101,11 @@ body {
     min-width: 8em;
 }
 
-/* Focused state for input */
 .search input:focus {
     outline: none;
     background-color: #e9e2ff;
     border: 1px solid #4400ff;
     width: 65%;
-    /* Expands width */
 }
 
 .search input:hover {
@@ -119,13 +113,10 @@ body {
     background-color: #e9e2ff;
     border: 1px solid #4400ff;
     width: 65%;
-    /* Expands width */
 }
 
-/* Button styling */
+
 .search button {
-    /* margin-left: 0%; */
-    /* position: absolute; */
     padding: 8px 16px;
     border-radius: 10px;
     background-color: #000000;
@@ -193,13 +184,11 @@ body {
 @keyframes errorS {
     0% {
         opacity: 0;
-        /* margin-top: 0; */
         transform: translateY(-25%);
     }
 
     100% {
         opacity: 1;
-        /* margin-top: 10px; */
         transform: translateY(0);
     }
 }
@@ -217,7 +206,6 @@ body {
 
 .weather-main div {
     display: flex;
-    /* padding-right: ; */
     gap: .5em;
 }
 
@@ -230,8 +218,6 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 80%;
-    /* Optional: adjust as needed */
-    /* padding: 10px; */
     padding-left: 10%;
     padding-right: 10%;
     padding-bottom: 10px;
@@ -241,5 +227,4 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    /* Space between the image and text */
 }
