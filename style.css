@@ -146,23 +146,20 @@ body {
 #suggestionsList {
     position: absolute;
     top: calc(100% + 5px);
-    /* Slightly below input for breathing space */
     left: 0;
     right: 0;
-    /* width: 60%; */
     background-color: #313131;
     color: white;
     border-top: none;
     border-radius: 15px;
     z-index: 1000;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 1);
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 1);
     margin: 0;
     padding: 0;
     overflow: hidden;
-    /* Ensures smooth rounded corners */
 }
 
-/* Individual suggestion items */
+
 #suggestionsList li {
     padding: 10px;
     cursor: pointer;
@@ -172,7 +169,6 @@ body {
 #suggestionsList li.selected,
 #suggestionsList li:hover {
     background-color: #5d5d5d;
-    /* Highlight for selected item */
     border-radius: 15px;
     color: white;
 }

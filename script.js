@@ -23,7 +23,6 @@ async function fetchData() {
         document.getElementById('weatherDis').style.display = 'flex'
         document.getElementById('detailsDis').style.animation = 'errorS .75s ease'
         document.getElementById('detailsDis').style.display = 'flex'
-        // document.getElementById('main').style.animation = 'expand .75s ease'
 
         console.log(result);
         document.getElementById('temp').textContent = Math.round(result.main.temp - 273) + '°C'
@@ -53,7 +52,7 @@ async function getCitySuggestions() {
 
         displaySuggestions(data);
     } catch (error) {
-        console.error("Error fetching city suggestions:", error);
+        console.error("Error while fetching city suggestions:", error);
     }
 }
 
